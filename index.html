@@ -6,6 +6,9 @@
     <meta name="description" content="Профессиональный снос в Telegram, OSINT/GOINT, сбор данных. Специалист @vkmacov">
     <meta name="theme-color" content="#0a0a0a">
     <title>MAKOV | Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,19 +20,41 @@
             background-color: #0a0a0a;
             color: #e0e0e0;
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-weight: 400;
             line-height: 1.5;
             overflow-x: hidden;
         }
 
-        /* все технические элементы и цены — моноширинный */
-        .mono, .price, .nick, .service-title, .badge, .payment-methods span, .tg-button {
-            font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
-        }
-
-        /* заголовки услуг тоже моноширинный */
-        .service-title {
+        /* жирные заголовки, навигация — Poppins */
+        .nav-links a, 
+        h1, 
+        h2, 
+        .badge, 
+        .service-title,
+        .tg-button,
+        .payment-methods span {
+            font-family: 'Poppins', 'Inter', sans-serif;
             font-weight: 600;
             letter-spacing: -0.3px;
+        }
+
+        /* моноширинный для цен и технических элементов */
+        .price, 
+        .nick, 
+        .mono,
+        .copy-hint,
+        footer .copy-hint {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+        }
+
+        /* основной текст — Inter нормальный вес */
+        .service-desc,
+        .about-text,
+        .subhead,
+        .contact-block div,
+        footer div {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
         }
 
         .container {
@@ -60,8 +85,8 @@
             color: #aaa;
             text-decoration: none;
             font-size: 14px;
-            letter-spacing: 1px;
-            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.5px;
+            font-weight: 700;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -100,31 +125,30 @@
 
         h1 {
             font-size: 64px;
-            font-weight: 600;
+            font-weight: 800;
             letter-spacing: -1px;
             background: linear-gradient(135deg, #fff 0%, #00d4aa 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             margin-bottom: 16px;
-            font-family: 'JetBrains Mono', monospace;
             animation: fadeInUp 0.8s ease;
         }
 
         h2 {
             font-size: 32px;
-            font-weight: 500;
+            font-weight: 700;
             margin-bottom: 40px;
             letter-spacing: -0.5px;
             border-left: 3px solid #00d4aa;
             padding-left: 20px;
-            font-family: 'JetBrains Mono', monospace;
         }
 
         .subhead {
             font-size: 18px;
             color: #888;
             margin-bottom: 32px;
+            font-weight: 400;
             animation: fadeInUp 0.8s ease 0.1s both;
         }
 
@@ -175,11 +199,12 @@
             justify-content: space-between;
             align-items: baseline;
             flex-wrap: wrap;
+            font-weight: 700;
         }
 
         .price {
             font-size: 26px;
-            font-weight: 700;
+            font-weight: 600;
             color: #00d4aa;
             transition: all 0.3s ease;
         }
@@ -194,7 +219,7 @@
             margin-top: 12px;
             border-top: 1px solid #1e1e1e;
             padding-top: 12px;
-            font-family: inherit;
+            font-weight: 400;
         }
 
         .badge {
@@ -206,6 +231,7 @@
             border-radius: 40px;
             margin-bottom: 20px;
             letter-spacing: 0.5px;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
 
@@ -222,6 +248,7 @@
             font-size: 16px;
             line-height: 1.6;
             color: #cdcdcd;
+            font-weight: 400;
             transition: all 0.3s ease;
         }
 
@@ -253,7 +280,7 @@
             padding: 14px 32px;
             border-radius: 60px;
             font-size: 20px;
-            font-weight: 500;
+            font-weight: 700;
             color: #fff;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -297,6 +324,7 @@
         .payment-methods span {
             color: #00d4aa;
             font-size: 14px;
+            font-weight: 600;
             transition: all 0.3s ease;
             cursor: default;
         }
@@ -341,7 +369,7 @@
 <main class="container">
     <section style="padding-top: 100px; border-bottom: none;" id="hero">
         <div class="badge">⚡️ PROFESSIONAL TAKEDOWN & OSINT</div>
-        <h1>MAKOV<br><span style="font-size: 28px; color: #aaa;">ликвидация / разведка</span></h1>
+        <h1>MAKOV<br><span style="font-size: 28px; color: #aaa; font-family: 'Inter', monospace;">ликвидация / разведка</span></h1>
         <div class="subhead">Точечный снос | OSINT/GOINT | Цифровые следы</div>
         <div class="mono" style="color: #00d4aa;">@vkmacov — только результат, без лишнего</div>
     </section>
