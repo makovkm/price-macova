@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="description" content="Профессиональный снос в Telegram, OSINT/GEOINT, сбор данных. Специалист @vkmacov">
+    <meta name="description" content="Профессиональный снос в Telegram, OSINT/GEOINT, продажа TG аккаунтов, создание сайтов. Специалист @vkmacov">
     <meta name="theme-color" content="#0a0a0a">
     <title>MAKOV | Specialist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,6 @@
             position: relative;
         }
 
-        /* анимированный фон с точками */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -43,10 +42,8 @@
             position: absolute;
             width: 200%;
             height: 200%;
-            background-image: 
-                radial-gradient(circle at 2px 2px, rgba(0,212,170,0.08) 1px, transparent 1px),
-                radial-gradient(circle at 1px 1px, rgba(0,212,170,0.05) 0.5px, transparent 0.5px);
-            background-size: 40px 40px, 20px 20px;
+            background-image: radial-gradient(circle at 2px 2px, rgba(0,212,170,0.08) 1px, transparent 1px);
+            background-size: 40px 40px;
             animation: drift 60s linear infinite;
             opacity: 0.6;
         }
@@ -56,25 +53,13 @@
             100% { transform: translate(-10%, -10%); }
         }
 
-        /* жирные заголовки, навигация — Poppins */
-        .nav-links a, 
-        h1, 
-        h2, 
-        .badge, 
-        .service-title,
-        .tg-button,
-        .payment-methods span {
+        .nav-links a, h1, h2, .badge, .service-title, .tg-button, .payment-methods span, .country-card .country-name {
             font-family: 'Poppins', 'Inter', sans-serif;
             font-weight: 600;
             letter-spacing: -0.3px;
         }
 
-        /* моноширинный для цен и технических элементов */
-        .price, 
-        .nick, 
-        .mono,
-        .copy-hint,
-        footer .copy-hint {
+        .price, .nick, .mono, .copy-hint, footer .copy-hint, .country-price {
             font-family: 'JetBrains Mono', 'Fira Code', monospace;
         }
 
@@ -94,7 +79,6 @@
             background: rgba(10, 10, 10, 0.85);
             backdrop-filter: blur(12px);
             z-index: 100;
-            transition: all 0.3s ease;
         }
 
         .nav-links {
@@ -155,7 +139,6 @@
             background-clip: text;
             color: transparent;
             margin-bottom: 16px;
-            animation: fadeInUp 0.8s ease;
         }
 
         h2 {
@@ -171,11 +154,8 @@
             font-size: 18px;
             color: #888;
             margin-bottom: 32px;
-            font-weight: 400;
-            animation: fadeInUp 0.8s ease 0.1s both;
         }
 
-        /* анимация печати */
         .typewriter {
             overflow: hidden;
             white-space: nowrap;
@@ -206,44 +186,14 @@
             border: 1px solid #1e1e1e;
             border-radius: 20px;
             padding: 24px;
-            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: all 0.4s ease;
             opacity: 0;
             transform: scale(0.95);
             animation: cardAppear 0.5s ease forwards;
-            position: relative;
-            overflow: hidden;
         }
-
-        /* эффект свечения при наведении */
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0,212,170,0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .service-card:hover::before {
-            left: 100%;
-        }
-
-        .service-card:nth-child(1) { animation-delay: 0.05s; }
-        .service-card:nth-child(2) { animation-delay: 0.1s; }
-        .service-card:nth-child(3) { animation-delay: 0.15s; }
-        .service-card:nth-child(4) { animation-delay: 0.2s; }
-        .service-card:nth-child(5) { animation-delay: 0.25s; }
-        .service-card:nth-child(6) { animation-delay: 0.3s; }
-        .service-card:nth-child(7) { animation-delay: 0.35s; }
-        .service-card:nth-child(8) { animation-delay: 0.4s; }
 
         @keyframes cardAppear {
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .service-card:hover {
@@ -254,30 +204,10 @@
 
         .service-title {
             font-size: 20px;
-            margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
             flex-wrap: wrap;
             font-weight: 700;
-        }
-
-        .price {
-            font-size: 26px;
-            font-weight: 600;
-            color: #00d4aa;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover .price {
-            text-shadow: 0 0 12px rgba(0,212,170,0.8);
-            animation: pulse 0.5s ease-in-out;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-            100% { transform: scale(1); }
         }
 
         .service-desc {
@@ -286,7 +216,60 @@
             margin-top: 12px;
             border-top: 1px solid #1e1e1e;
             padding-top: 12px;
-            font-weight: 400;
+        }
+
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .country-card {
+            background: #0f0f0f;
+            border: 1px solid #1e1e1e;
+            border-radius: 16px;
+            padding: 16px 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            cursor: pointer;
+        }
+
+        .country-card:hover {
+            border-color: #00d4aa;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px -8px rgba(0,212,170,0.25);
+        }
+
+        .country-info {
+            display: flex;
+            gap: 10px;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .country-flag {
+            font-size: 22px;
+        }
+
+        .country-name {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .country-code {
+            color: #777;
+            font-size: 11px;
+            font-family: monospace;
+        }
+
+        .country-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #00d4aa;
         }
 
         .badge {
@@ -305,7 +288,6 @@
         .badge:hover {
             background: #00d4aa20;
             letter-spacing: 1px;
-            transform: scale(1.02);
         }
 
         .about-text {
@@ -313,17 +295,12 @@
             padding: 32px;
             border-radius: 24px;
             border-left: 3px solid #00d4aa;
-            font-size: 16px;
-            line-height: 1.6;
-            color: #cdcdcd;
-            font-weight: 400;
             transition: all 0.3s ease;
         }
 
         .about-text:hover {
             border-left-width: 5px;
             background: #0e0e0e;
-            transform: translateX(4px);
         }
 
         .contact-block {
@@ -331,13 +308,42 @@
             background: #0c0c0c;
             border-radius: 32px;
             padding: 48px 24px;
-            margin-top: 20px;
-            transition: all 0.4s ease;
         }
 
-        .contact-block:hover {
-            background: #0f0f0f;
-            transform: scale(1.01);
+        .reviews-block {
+            text-align: center;
+            background: #0c0c0c;
+            border-radius: 32px;
+            padding: 48px 24px;
+            margin-top: 30px;
+        }
+
+        .review-card {
+            background: #0a0a0a;
+            border: 1px solid #1e1e1e;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            border-color: #00d4aa;
+            transform: translateX(5px);
+        }
+
+        .review-author {
+            color: #00d4aa;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-family: monospace;
+        }
+
+        .review-text {
+            color: #bbb;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
         .tg-button {
@@ -354,15 +360,12 @@
             text-decoration: none;
             transition: all 0.3s ease;
             margin-top: 16px;
-            animation: pulse 2s infinite;
         }
 
         .tg-button:hover {
             border-color: #00d4aa;
             background: #00d4aa15;
             transform: scale(0.98);
-            gap: 16px;
-            animation: none;
         }
 
         .copy-hint {
@@ -374,8 +377,6 @@
         footer {
             text-align: center;
             padding: 50px 0 40px;
-            font-size: 13px;
-            color: #444;
             border-top: 1px solid #141414;
             margin-top: 20px;
         }
@@ -389,7 +390,6 @@
             padding: 20px;
             background: #0c0c0c;
             border-radius: 60px;
-            transition: all 0.3s ease;
         }
 
         .payment-methods span {
@@ -398,22 +398,6 @@
             font-weight: 600;
             transition: all 0.3s ease;
             cursor: default;
-            position: relative;
-        }
-
-        .payment-methods span::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: #00d4aa;
-            transition: width 0.3s ease;
-        }
-
-        .payment-methods span:hover::after {
-            width: 100%;
         }
 
         .payment-methods span:hover {
@@ -421,25 +405,11 @@
             text-shadow: 0 0 5px rgba(0,212,170,0.5);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @media (max-width: 700px) {
             h1 { font-size: 42px; }
             h2 { font-size: 26px; }
-            section { padding: 50px 0; }
-            .service-title { font-size: 16px; }
-            .price { font-size: 22px; }
-            .payment-methods { gap: 12px; border-radius: 30px; }
-            .payment-methods span { font-size: 10px; }
+            .countries-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+            .country-card { padding: 12px; flex-direction: column; text-align: center; gap: 8px; }
             .typewriter { white-space: normal; border-right: none; animation: none; }
         }
     </style>
@@ -451,79 +421,75 @@
 <nav>
     <div class="container nav-links">
         <a href="#about">ОБО МНЕ</a>
-        <a href="#prices">ПРАЙС</a>
+        <a href="#prices">УСЛУГИ</a>
+        <a href="#accounts">TG АККАУНТЫ</a>
         <a href="#contact">КОНТАКТ</a>
+        <a href="#reviews">ОТЗЫВЫ</a>
     </div>
 </nav>
 
 <main class="container">
     <section style="padding-top: 100px; border-bottom: none;" id="hero">
         <div class="badge">⚡️ PROFESSIONAL TAKEDOWN & OSINT</div>
-        <h1>MAKOV<br><span style="font-size: 28px; color: #aaa; font-family: 'Inter', monospace;">ликвидация / разведка</span></h1>
-        <div class="subhead typewriter">Точечный снос | OSINT/GEOINT | Цифровые следы</div>
+        <h1>MAKOV<br><span style="font-size: 28px; color: #aaa;">ликвидация / разведка / разработка</span></h1>
+        <div class="subhead typewriter">Точечный снос | OSINT/GEOINT | Создание сайтов | TG аккаунты</div>
         <div class="mono" style="color: #00d4aa;">@vkmacov — только результат, без лишнего</div>
     </section>
 
     <section id="about">
         <h2>ОБО МНЕ</h2>
         <div class="about-text">
-            Меня зовут <strong class="nick">@vkmacov</strong> — я специализируюсь на точечном и массовом сносе в Telegram, а также занимаюсь OSINT/GEOINT. 
-            Снос каналов, ботов, аккаунтов и чатов — моя основная специализация. Дополнительно провожу сбор и анализ открытой информации, работаю с геолокацией и цифровыми следами. 
-            Использую собственные протоколы и многолетний опыт, чтобы результат был точным, быстрым и максимально эффективным. 
-            Работаю только по предоплате, без угроз и пустых разговоров. Если нужно решить задачу — вы попали по адресу.
+            Меня зовут <strong class="nick">@vkmacov</strong> — специализируюсь на точечном и массовом сносе в Telegram, OSINT/GEOINT, продаже верифицированных TG-аккаунтов, а также создании сайтов на заказ. Работаю только по предоплате, без угроз и пустых разговоров.
         </div>
     </section>
 
     <section id="prices">
-        <h2>ПРАЙС-ЛИСТ</h2>
-        
-        <div style="margin-bottom: 48px;">
-            <div class="badge">💀 СНОС ОТ МАКОВА</div>
-            <div class="services-grid">
-                <div class="service-card"><div class="service-title">Снос канала <span class="price">250₽</span></div><div class="service-desc">30 минут — минус канал</div></div>
-                <div class="service-card"><div class="service-title">Обучение сносам <span class="price">400₽</span></div><div class="service-desc">полный гайд + техники</div></div>
-                <div class="service-card"><div class="service-title">Канал (точечный) <span class="price">350₽</span></div><div class="service-desc">точечный снос</div></div>
-                <div class="service-card"><div class="service-title">Бот <span class="price">250₽</span></div><div class="service-desc">удаление @username бота</div></div>
-                <div class="service-card"><div class="service-title">Аккаунт <span class="price">450₽</span></div><div class="service-desc">профиль + данные</div></div>
-                <div class="service-card"><div class="service-title">Чаты / беседы <span class="price">350₽</span></div><div class="service-desc">группы / беседы</div></div>
-            </div>
+        <h2>УСЛУГИ</h2>
+        <div class="services-grid">
+            <div class="service-card"><div class="service-title">Снос канала <span class="price">250₽</span></div><div class="service-desc">30 минут — минус канал</div></div>
+            <div class="service-card"><div class="service-title">Обучение сносам <span class="price">400₽</span></div><div class="service-desc">полный гайд + техники</div></div>
+            <div class="service-card"><div class="service-title">Бот <span class="price">250₽</span></div><div class="service-desc">удаление @username бота</div></div>
+            <div class="service-card"><div class="service-title">Аккаунт <span class="price">450₽</span></div><div class="service-desc">профиль + данные</div></div>
+            <div class="service-card"><div class="service-title">Валидация аккаунта <span class="price">650₽</span></div><div class="service-desc">проверка активности</div></div>
+            <div class="service-card"><div class="service-title">Досье (валид) <span class="price">800₽</span></div><div class="service-desc">полный отчет</div></div>
+            <div class="service-card"><div class="service-title">Архив MAKOV <span class="price">400₽</span></div><div class="service-desc">130+ материалов</div></div>
+            <div class="service-card"><div class="service-title">Создание сайтов <span class="price">от 1500₽</span></div><div class="service-desc">лендинг, визитка, под ключ. Цена зависит от сложности</div></div>
         </div>
+    </section>
 
-        <div style="margin-bottom: 48px;">
-            <div class="badge">🔍 OSINT/GEOINT ОТ МАКОВА</div>
-            <div class="services-grid">
-                <div class="service-card"><div class="service-title">Валидация аккаунта <span class="price">650₽</span></div><div class="service-desc">проверка активности, подлинность, базовые данные (~8$)</div></div>
-                <div class="service-card"><div class="service-title">Собрать досье с одной валидной зацепки <span class="price">800₽</span></div><div class="service-desc">полный отчет по верифицированному аккаунту (~10$)</div></div>
-                <div class="service-card"><div class="service-title">Валидация + полное досье <span class="price">1200₽</span></div><div class="service-desc">глубокий поиск (~15$)</div></div>
-            </div>
-        </div>
-
-        <div style="margin-bottom: 48px;">
-            <div class="badge">🎯 Д&Ф ОТ МАКОВА</div>
-            <div class="services-grid">
-                <div class="service-card"><div class="service-title">Обычный <span class="price">450₽</span></div><div class="service-desc">стандартный пакет</div></div>
-                <div class="service-card"><div class="service-title">Вип <span class="price">600₽</span></div><div class="service-desc">усиленная глубина</div></div>
-                <div class="service-card"><div class="service-title">Люкс <span class="price">850₽</span></div><div class="service-desc">максимальный эффект</div></div>
-            </div>
-        </div>
-
-        <div>
-            <div class="badge">📚 АРХИВ МАТЕРИАЛОВ</div>
-            <div class="services-grid">
-                <div class="service-card"><div class="service-title">Архив MAKOV <span class="price">400₽</span></div><div class="service-desc">130+ полезных материалов: гайды, инструменты, техники, базы знаний</div></div>
-            </div>
-        </div>
+    <section id="accounts">
+        <h2>ПРОДАЖА TG АККАУНТОВ</h2>
+        <div class="badge">🌍 физические SIM | моментальная выдача | гарантия 30 дней</div>
+        <div class="countries-grid" id="countriesGrid"></div>
+        <div class="copy-hint" style="text-align: center; margin-top: 24px;">* цена за 1 аккаунт. Опт — обсуждаемо в Telegram</div>
     </section>
 
     <section id="contact">
         <h2>СВЯЗЬ</h2>
         <div class="contact-block">
-            <div style="font-size: 18px; margin-bottom: 12px;">📩 только Telegram</div>
-            <a href="https://t.me/vkmacov" target="_blank" rel="noopener noreferrer" class="tg-button" id="tgLink">
-                ✈️ @vkmacov
-            </a>
-            <div class="copy-hint">нажмите для перехода в Telegram | после оплаты пишите сразу — отвечаю оперативно</div>
+            <div style="font-size: 18px; margin-bottom: 12px;">📩 Telegram</div>
+            <a href="https://t.me/vkmacov" target="_blank" class="tg-button" id="tgLink">✈️ @vkmacov</a>
+            <div class="copy-hint">после оплаты пишите сразу — отвечаю оперативно</div>
             <div class="copy-hint" style="margin-top: 12px;">💰 предоплата 100%</div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2>ОТЗЫВЫ</h2>
+        <div class="reviews-block">
+            <div class="review-card">
+                <div class="review-author">@omacov</div>
+                <div class="review-text">"Работа выполнена качественно и в срок. Рекомендую!"</div>
+            </div>
+            <div class="review-card">
+                <div class="review-author">@user123</div>
+                <div class="review-text">"Профессиональный подход, все четко и без лишних вопросов. Буду обращаться еще."</div>
+            </div>
+            <div class="review-card">
+                <div class="review-author">@client_22</div>
+                <div class="review-text">"Быстро и надежно. Сайт сделали на отлично, спасибо!"</div>
+            </div>
+            <div class="copy-hint" style="margin-top: 20px;">Больше отзывов в Telegram</div>
         </div>
     </section>
 </main>
@@ -531,68 +497,120 @@
 <footer>
     <div class="container">
         <div class="payment-methods">
-            <span>💎 TON</span>
-            <span>₽ RUB</span>
-            <span>$ USD</span>
-            <span>⭐️ STARS</span>
-            <span>🖼 NFT</span>
-            <span>📱 TG аккаунты</span>
+            <span>💎 TON</span><span>₽ RUB</span><span>$ USD</span><span>⭐️ STARS</span><span>🖼 NFT</span><span>📱 TG аккаунты</span>
         </div>
-        <div style="margin-top: 20px;">MAKOV — специалист по сносу и OSINT/GEOINT. 2025</div>
+        <div>MAKOV — специалист по сносу, OSINT/GEOINT, сайтам и TG аккаунтам. 2025</div>
         <div class="copy-hint" style="margin-top: 15px;">*курс USD фиксирован: 1$ = 81.29₽ | принимаются любые формы оплаты</div>
     </div>
 </footer>
 
 <script>
-    const sections = document.querySelectorAll('section');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-    
-    document.getElementById('hero')?.classList.add('visible');
-    
-    const tgLink = document.getElementById('tgLink');
-    if (tgLink) {
-        tgLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            navigator.clipboard.writeText('@vkmacov');
-            const hint = document.createElement('div');
-            hint.textContent = '✓ Ник скопирован: @vkmacov';
-            hint.style.position = 'fixed';
-            hint.style.bottom = '20px';
-            hint.style.left = '50%';
-            hint.style.transform = 'translateX(-50%)';
-            hint.style.backgroundColor = '#00d4aa';
-            hint.style.color = '#000';
-            hint.style.padding = '8px 18px';
-            hint.style.borderRadius = '40px';
-            hint.style.fontSize = '14px';
-            hint.style.zIndex = '999';
-            hint.style.fontFamily = 'monospace';
-            hint.style.fontWeight = '500';
-            document.body.appendChild(hint);
-            setTimeout(() => hint.remove(), 2000);
+    const countries = [
+        { flag: "🇷🇺", name: "Россия", code: "+7", price: 250 },
+        { flag: "🇺🇸", name: "США", code: "+1", price: 60 },
+        { flag: "🇬🇧", name: "Англия", code: "+44", price: 90 },
+        { flag: "🇨🇦", name: "Канада", code: "+1", price: 60 },
+        { flag: "🇩🇪", name: "Германия", code: "+49", price: 150 },
+        { flag: "🇫🇷", name: "Франция", code: "+33", price: 170 },
+        { flag: "🇮🇹", name: "Италия", code: "+39", price: 210 },
+        { flag: "🇪🇸", name: "Испания", code: "+34", price: 140 },
+        { flag: "🇳🇱", name: "Нидерланды", code: "+31", price: 180 },
+        { flag: "🇵🇱", name: "Польша", code: "+48", price: 130 },
+        { flag: "🇬🇷", name: "Греция", code: "+30", price: 170 },
+        { flag: "🇸🇪", name: "Швеция", code: "+46", price: 180 },
+        { flag: "🇨🇭", name: "Швейцария", code: "+41", price: 390 },
+        { flag: "🇺🇦", name: "Украина", code: "+380", price: 170 },
+        { flag: "🇧🇾", name: "Беларусь", code: "+375", price: 340 },
+        { flag: "🇱🇻", name: "Латвия", code: "+371", price: 170 },
+        { flag: "🇱🇹", name: "Литва", code: "+370", price: 520 },
+        { flag: "🇪🇪", name: "Эстония", code: "+372", price: 230 },
+        { flag: "🇲🇩", name: "Молдова", code: "+373", price: 240 },
+        { flag: "🇰🇿", name: "Казахстан", code: "+7", price: 160 },
+        { flag: "🇺🇿", name: "Узбекистан", code: "+998", price: 90 },
+        { flag: "🇰🇬", name: "Киргизия", code: "+996", price: 290 },
+        { flag: "🇹🇷", name: "Турция", code: "+90", price: 150 },
+        { flag: "🇦🇪", name: "ОАЭ", code: "+971", price: 300 },
+        { flag: "🇸🇦", name: "Саудовская Аравия", code: "+966", price: 280 },
+        { flag: "🇮🇱", name: "Израиль", code: "+972", price: 100 },
+        { flag: "🇮🇶", name: "Ирак", code: "+964", price: 220 },
+        { flag: "🇮🇷", name: "Иран", code: "+98", price: 70 },
+        { flag: "🇾🇪", name: "Йемен", code: "+967", price: 130 },
+        { flag: "🇮🇳", name: "Индия", code: "+91", price: 60 },
+        { flag: "🇵🇰", name: "Пакистан", code: "+92", price: 60 },
+        { flag: "🇧🇩", name: "Бангладеш", code: "+880", price: 70 },
+        { flag: "🇹🇭", name: "Таиланд", code: "+66", price: 100 },
+        { flag: "🇻🇳", name: "Вьетнам", code: "+84", price: 80 },
+        { flag: "🇲🇾", name: "Малайзия", code: "+60", price: 110 },
+        { flag: "🇮🇩", name: "Индонезия", code: "+62", price: 70 },
+        { flag: "🇵🇭", name: "Филиппины", code: "+63", price: 100 },
+        { flag: "🇲🇲", name: "Мьянма", code: "+95", price: 60 },
+        { flag: "🇨🇳", name: "Китай", code: "+86", price: 230 },
+        { flag: "🇯🇵", name: "Япония", code: "+81", price: 200 },
+        { flag: "🇦🇺", name: "Австралия", code: "+61", price: 180 },
+        { flag: "🇳🇿", name: "Новая Зеландия", code: "+64", price: 240 },
+        { flag: "🇲🇽", name: "Мексика", code: "+52", price: 120 },
+        { flag: "🇧🇷", name: "Бразилия", code: "+55", price: 90 },
+        { flag: "🇦🇷", name: "Аргентина", code: "+54", price: 80 },
+        { flag: "🇨🇱", name: "Чили", code: "+56", price: 80 },
+        { flag: "🇨🇴", name: "Колумбия", code: "+57", price: 60 },
+        { flag: "🇨🇺", name: "Куба", code: "+53", price: 90 },
+        { flag: "🇭🇳", name: "Гондурас", code: "+504", price: 310 },
+        { flag: "🇪🇬", name: "Египет", code: "+20", price: 60 },
+        { flag: "🇲🇦", name: "Марокко", code: "+212", price: 90 },
+        { flag: "🇩🇿", name: "Алжир", code: "+213", price: 90 },
+        { flag: "🇰🇪", name: "Кения", code: "+254", price: 60 },
+        { flag: "🇪🇹", name: "Эфиопия", code: "+251", price: 60 },
+       { flag: "🇿🇦", name: "ЮАР", code: "+27", price: 100 },
+        { flag: "🇲🇬", name: "Мадагаскар", code: "+261", price: 100 },
+        { flag: "🇿🇼", name: "Зимбабве", code: "+263", price: 70 },
+        { flag: "🇳🇬", name: "Нигерия", code: "+234", price: 60 },
+        { flag: "🇬🇭", name: "Гана", code: "+233", price: 1250 }
+    ];
+
+    const grid = document.getElementById('countriesGrid');
+    countries.forEach(c => {
+        const card = document.createElement('div');
+        card.className = 'country-card';
+        card.innerHTML = `
+            <div class="country-info">
+                <span class="country-flag">${c.flag}</span>
+                <span class="country-name">${c.name}</span>
+                <span class="country-code">${c.code}</span>
+            </div>
+            <div class="country-price">${c.price}₽</div>
+        `;
+        card.addEventListener('click', () => {
             window.open('https://t.me/vkmacov', '_blank');
         });
-    }
-    
+        grid.appendChild(card);
+    });
+
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+    document.getElementById('hero')?.classList.add('visible');
+
+    document.getElementById('tgLink')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigator.clipboard.writeText('@vkmacov');
+        const hint = document.createElement('div');
+        hint.textContent = '✓ Ник скопирован: @vkmacov';
+        hint.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#00d4aa;color:#000;padding:8px 18px;border-radius:40px;font-size:14px;z-index:999;font-family:monospace';
+        document.body.appendChild(hint);
+        setTimeout(() => hint.remove(), 2000);
+        window.open('https://t.me/vkmacov', '_blank');
+    });
+
     document.querySelectorAll('.nav-links a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const target = document.getElementById(targetId);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
 </script>
